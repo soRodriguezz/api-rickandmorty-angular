@@ -1,15 +1,21 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div *ngFor="let dato of datos" class="col">
       <div class="card">
-        <img src="{{ dato.image }}" class="card-img-top" alt="...">
+        <img src="{{ dato.image }}"  class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ dato.name }}</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text">{{ dato.location.name }}</p>
+          <ul class="list-group">
+            <li class="list-group-item">Species: {{ dato.species }}</li>
+            <li class="list-group-item">Status: {{ dato.status }}</li>
+            <li class="list-group-item">Origin: {{ dato.origin.name }}</li>
+            <li class="list-group-item">Gender: {{ dato.gender }}</li>
+          </ul>
         </div>
       </div>
     </div>
 </div>
-<div class="mt-4">
+<div class="mt-4 d-flex justify-content-center ">
     <ul class="pagination">
         <li *ngFor="let pagina of paginas; let i = index" class="page-item">
             <a class="page-link" (click)="getDatosPorPagina(i+1)" href="#">{{i+1}}</a>
